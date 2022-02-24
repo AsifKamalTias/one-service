@@ -1,3 +1,9 @@
+<?php
+    include '../../Controllers/admin-signin-stateCheck.php';
+    if(isAdminSignedIn()==true) {
+        header('Location: admin-dashboard.php');
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>

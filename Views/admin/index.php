@@ -6,7 +6,7 @@
 <body>
     <?php
         if(!isset($_COOKIE['one_service_admin_username']) && !isset($_COOKIE['one_service_admin_password'])) {
-            header('Location: admin-sign-in.php');
+            header('Location: admin-signin.php');
         }
         else
         {
