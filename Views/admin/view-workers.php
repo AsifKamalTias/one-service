@@ -25,6 +25,7 @@
     </style>
 </head>
 <body>
+    <a href="./admin-dashboard.php"> Back to Dashboard</a>
     <h1>Workers Information</h1>
     <table border:"1">
         <thead>

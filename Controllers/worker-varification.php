@@ -1,7 +1,6 @@
 <?php
     //edited directory
     include '../Models/worker.php';
-    
 
     if(isset($_GET['worker_id']) && $_GET['varify'] == 'true') {
         varifyWorker($_GET['worker_id']);

@@ -14,6 +14,7 @@
     <hr>
     <a href="../../Views/admin/view-workers.php">View Workers</a>
     <br>
+    <a href="../../Views/admin/view-customers.php">View Customers</a>
     <a href="../../Controllers/admin-signout-action.php?signout=true">Sign Out</a>
 </body>
 </html>

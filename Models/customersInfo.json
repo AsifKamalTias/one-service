@@ -1,0 +1,20 @@
+[
+    {
+        "customer_id": "c-00000001",
+        "customer_name": "Puravi Debnath Nitu",
+        "customer_username": "puravidebnath",
+        "customer_address": "Gazipur",
+        "customer_phone": "548884558",
+        "customer_email": "nitu@gmail.com",
+        "customer_password": "12345"
+    },
+    {
+        "customer_id": "c-00000002",
+        "customer_name": "Shihab Ar Rashid",
+        "customer_username": "shihabar",
+        "customer_address": "Chittagong",
+        "customer_phone": "4555885224",
+        "customer_email": "shihab@gmail.com",
+        "customer_password": "8484488df"
+    }
+]

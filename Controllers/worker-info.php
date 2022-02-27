@@ -1,5 +1,4 @@
 <?php
-    //edited directory
     include '../../Models/worker.php';
     function getWorkers()
     {        

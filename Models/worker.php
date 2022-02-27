@@ -1,6 +1,5 @@
 <?php
     function getWorkersInfo() {
-        //edited directory
         $workers_data = file_get_contents("../../Models/workersInfo.json");
         $json=json_decode($workers_data, true);
         return $json;
