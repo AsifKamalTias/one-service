@@ -16,25 +16,26 @@
         }
     }
 
-    function varifyWorker($worker_id) {
+    function verifyWorker($worker_id) {
         $workers_data = file_get_contents("../Models/workersInfo.json");
         $json=json_decode($workers_data, true);
         foreach($json as $key => $worker) {
             if($worker['worker_id'] == $worker_id) {
-                $json[$key]['is_workerVarified'] = "true";
+                $json[$key]['is_workerVerified'] = "true";
             }
         }
         file_put_contents("../Models/workersInfo.json", json_encode($json));
     }
 
-    function unvarifyWorker($worker_id) {
+    function unverifyWorker($worker_id) {
         $workers_data = file_get_contents("../Models/workersInfo.json");
         $json=json_decode($workers_data, true);
         foreach($json as $key => $worker) {
             if($worker['worker_id'] == $worker_id) {
-                $json[$key]['is_workerVarified'] = "false";
+                $json[$key]['is_workerVerified'] = "false";
             }
         }
         file_put_contents("../Models/workersInfo.json", json_encode($json));
-    }   
+    }
+    
 ?>

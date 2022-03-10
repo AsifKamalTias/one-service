@@ -19,5 +19,13 @@
     <a href="../../Views/admin/view-workers.php">View Workers</a>
     <br>
     <a href="../../Views/admin/view-customers.php">View Customers</a>
+    <br>
+    <a href="../../Views/admin/view-moderators.php">View Moderators</a>
+    <br>
+    <a href="../../Views/admin/view-services.php">View Services</a>
+    <br>
+    <a href="../../Views/admin/view-orders.php">View Orders</a>
+    <br>
+    <a href="../../Views/admin/view-income.php">View Income History</a>
 </body>
 </html>
