@@ -26,6 +26,6 @@
     <br>
     <a href="../../Views/admin/view-orders.php">View Orders</a>
     <br>
-    <a href="../../Views/admin/view-income.php">View Income History</a>
+    <a href="../../Views/admin/view-income-history.php">View Income History</a>
 </body>
 </html>

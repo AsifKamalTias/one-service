@@ -22,12 +22,53 @@
             padding: 8px;
             border: 1px solid black;
         }
+        p.invalid{
+            color: red;
+        }
+        p.valid{
+            color: green;
+        }
     </style>
 </head>
 <body>
     <a href="./admin-dashboard.php"> Back to Dashboard</a>
     <h1>Workers Information</h1>
+    <hr>
     <a href="./add-worker.php">Add Worker</a>
+    <p class="valid">
+        <?php
+            if(isset($_GET['add']) && $_GET['add'] == 'true') {
+                echo "Worker added successfully!";
+            } 
+            else if(isset($_GET['edit']) && $_GET['edit'] == 'true') {
+                echo "Worker edited successfully!";
+            }
+            else if(isset($_GET['remove']) && $_GET['remove'] == 'true') {
+                echo "Worker removed successfully!";
+            }
+            else
+            {
+                echo "";
+            }
+        ?>
+    </p>
+    <p class="invalid">
+        <?php
+            if(isset($_GET['add']) && $_GET['add'] == 'false') {
+                echo "Something went wrong. Please, fill up all the fields properly. Try again.";
+            } 
+            else if(isset($_GET['edit']) && $_GET['edit'] == 'false') {
+                echo "Something went wrong. Please, fill up all the fields properly. Try again.";
+            }
+            else if(isset($_GET['remove']) && $_GET['remove'] == 'false') {
+                echo "Something went wrong. Can not remove. Try again.";
+            }
+            else
+            {
+                echo "";
+            }
+        ?>
+    </p>
     <br><br>
     <table border:"1">
         <thead>
@@ -74,7 +115,7 @@
                         }
                     ?>
                     <?php
-                        echo "<td><a href='./add-worker.php?worker_id=".$worker['worker_id']."' >Edit</a></td>";
+                        echo "<td><a href='./edit-worker.php?worker_id=".$worker['worker_id']."' >Edit</a></td>";
                         echo "<td><a href='../../Controllers/remove-worker.php?worker_id=".$worker['worker_id']."' >Remove</a></td>";
                     ?>
                     <?php

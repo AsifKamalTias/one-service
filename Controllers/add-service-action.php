@@ -14,17 +14,17 @@
             }
             else
             {
-                header('Location: ../Views/admin/view-services.php?add=false');
+                header('Location: ../Views/admin/view-services.php?add=false&error=price');
             }
         }
         else
         {
-            header('Location: ../Views/admin/view-services.php?add=false');
+            header('Location: ../Views/admin/view-services.php?add=false&error=empty');
         }
     }
     else
     {
-        header('Location: ../Views/admin/view-services.php?add=false');
+        header('Location: ../Views/admin/view-services.php?add=false&error=empty');
     }
     
 ?>

@@ -4,14 +4,13 @@
         header('Location: admin-signin.php');
     }
 
-    include '../../Controllers/service-info.php';
-    $service_info = getServices();
+    include '../../Controllers/moderator-info.php';
+    $moderators_info = getModerators();
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Service Information - Admin | OneService</title>
+    <title>Moderators Information - Admin | OneService</title>
     <style>
         table {
             border: 1px solid black;
@@ -33,18 +32,19 @@
 </head>
 <body>
     <a href="./admin-dashboard.php"> Back to Dashboard</a>
-    <h1>Services</h1>
+    <h1>Moderators Information</h1>
     <hr>
+    <a href="./add-moderator.php">Add Moderator</a>
     <p class="valid">
         <?php
             if(isset($_GET['add']) && $_GET['add'] == 'true') {
-                echo "Service added successfully!";
+                echo "Moderator added successfully!";
             } 
             else if(isset($_GET['edit']) && $_GET['edit'] == 'true') {
-                echo "Service edited successfully!";
+                echo "Moderator edited successfully!";
             }
             else if(isset($_GET['remove']) && $_GET['remove'] == 'true') {
-                echo "Service removed successfully!";
+                echo "Moderator removed successfully!";
             }
             else
             {
@@ -58,22 +58,26 @@
                 if(isset($_GET['error']) && $_GET['error'] == 'empty') {
                     echo "Please, fill up all the fields properly. Try again.";
                 }
-                else if(isset($_GET['error']) && $_GET['error'] == 'price') {
-                    echo "Price must be a number.";
+                else if(isset($_GET['error']) && $_GET['error'] == 'password')
+                {
+                    echo "Password must be at least 8 characters long.";
                 }
-                else{
-                    echo "Something went wrong. Please, fill up all the fields properly. Try again.";
+                else
+                {
+                    echo "Something went wrong. Try Again.";
                 }
             } 
             else if(isset($_GET['edit']) && $_GET['edit'] == 'false') {
                 if(isset($_GET['error']) && $_GET['error'] == 'empty') {
                     echo "Please, fill up all the fields properly. Try again.";
                 }
-                else if(isset($_GET['error']) && $_GET['error'] == 'price') {
-                    echo "Price must be a number.";
+                else if(isset($_GET['error']) && $_GET['error'] == 'password')
+                {
+                    echo "Password must be at least 8 characters long.";
                 }
-                else{
-                    echo "Something went wrong. Please, fill up all the fields properly. Try again.";
+                else
+                {
+                    echo "Something went wrong. Try Again.";
                 }
             }
             else if(isset($_GET['remove']) && $_GET['remove'] == 'false') {
@@ -85,28 +89,25 @@
             }
         ?>
     </p>
-    <a href="./add-service.php">Add Service</a>
     <br><br>
     <table border:"1">
         <thead>
             <tr>
-                <th>Service Id</th>
-                <th>Service Name</th>
-                <th>Price</th>
+                <th>ID</th>
+                <th>Username</th>
             </tr>
         </thead>
         <tbody>
             <?php
-                foreach($service_info as $service) {
+                foreach($moderators_info as $moderator) {
                     echo "<tr>";
-                    echo "<td>" . $service['service_id'] . "</td>";
-                    echo "<td>" . $service['service_name'] . "</td>";
-                    echo "<td>" . $service['service_price'] . "</td>";
-            ?>
-                <?php
-                    echo "<td><a href='./edit-service.php?service_id=".$service['service_id']."' >Edit</a></td>";
-                    echo "<td><a href='../../Controllers/remove-service.php?service_id=".$service['service_id']."' >Remove</a></td>";
-                ?>
+                    echo "<td>" . $moderator['moderator_id'] . "</td>";
+                    echo "<td>" . $moderator['moderator_username'] . "</td>";
+                    ?>
+                    <?php
+                        echo "<td><a href='./edit-moderator.php?moderator_id=".$moderator['moderator_id']."' >Edit</a></td>";
+                        echo "<td><a href='../../Controllers/remove-moderator.php?moderator_id=".$moderator['moderator_id']."' >Remove</a></td>";
+                    ?>
                     <?php
                     echo "</tr>";
                 }

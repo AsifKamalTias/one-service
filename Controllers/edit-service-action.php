@@ -14,16 +14,16 @@
             }
             else
             {
-                header('Location: ../Views/admin/view-services.php?edit=false');
+                header('Location: ../Views/admin/view-services.php?edit=false&error=price');
             }
         }
         else
         {
-            header('Location: ../Views/admin/view-services.php?edit=false');
+            header('Location: ../Views/admin/view-services.php?edit=false&error=empty');
         }
     }
     else
     {
-        header('Location: ../Views/admin/view-services.php?edit=false');
+        header('Location: ../Views/admin/view-services.php?edit=false&error=empty');
     }
 ?>

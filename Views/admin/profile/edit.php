@@ -26,7 +26,17 @@
     <?php
         if(isset($_GET['edit']) && $_GET['edit']== 'false')
         {
-            echo "Please fill up the inputs properly.";
+            if(isset($_GET['error']))
+            {
+                if($_GET['error'] == 'empty')
+                {
+                    echo "Cannot Update. Please fill up all the fields.";
+                }
+                else if($_GET['error'] == 'password')
+                {
+                    echo "Cannot Update. Password must be longer than 7 characters.";
+                }
+            }
         }
     ?>
     </p>

@@ -19,13 +19,5 @@
         $id_of_last_service = $services[$no_of_services-1]['service_id'];
         $generatedId = "s-".((string)(((int)(substr($id_of_last_service, 2)))+1));
         return $generatedId;
-        // $services = getServices();
-        // $service_count = 1;
-        // foreach($services as $service)
-        // {
-        //    $service_count++;
-        // }
-        // $generatedId = "s-".$service_count;
-        // return $generatedId;
     }
 ?>
