@@ -8,16 +8,13 @@
 <html>
 <head>
     <title>Admin | OneService</title>
-    <style>
-        p.invalid-auth{
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/sign-in.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <h1 class="site-title">OneService</h1>
-    <form action="../../Controllers/admin-signin-action.php" method="POST">
+    <form action="../../Controllers/admin-signin-action.php" method="POST" id="sign-in-form">
         <h3>Admin Sign In</h3>
         <p class="invalid-auth">
             <?php
@@ -28,32 +25,14 @@
         </p>
         <label for="username">Username</label>
         <input class="text-box" type="text" id="username" name="username" placeholder="Username">
+        <small id="username-error"> <i class="fa-solid fa-circle-exclamation"></i> Username cannot be empty!</small>
         <label for="password">Password</label>
         <input class="text-box" type="password" id="password" name="password" placeholder="Password">
+        <small id="password-error"> <i class="fa-solid fa-circle-exclamation"></i> Password cannot be empty!</small><br>
         <input type="checkbox" name="remember" id="remember">
         <label class="checkbox-label" for="remember">Remember me</label><br><br>
         <input class="signin-button" type="submit" value="Sign in">
     </form>
-    <!-- <div class="container">
-        <h1>Admin Sign In</h1>
-        <p class="invalid-auth">
-            <?php
-                if(isset($_GET['signin']) && $_GET['signin'] == 'false') {
-                    echo "Invalid username or password. Please try again.";
-                }
-            ?>
-        </p>
-        <div class="form-container">
-            <form action="../../Controllers/admin-signin-action.php" method="POST">
-                <label for="username">Username</label><br>
-                <input type="text" name="username" id="username" placeholder="type username.."><br><br>
-                <label for="password">Password</label><br>
-                <input type="password" name="password" id="password" placeholder="type password.."><br><br>
-                <input type="checkbox" name="remember" id="remember">
-                <label for="remember">Remember me</label><br><br>
-                <input type="submit" value="Sign in">
-            </form>
-        </div>
-    </div> -->
+    <script src="./js/validation.js"></script>
 </body>
 </html>
