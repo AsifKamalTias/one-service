@@ -2,15 +2,55 @@
     include '../../Models/customer.php';
     function getCustomers()
     {        
-        $customers = getCustomersInfo();
+        // $customers = getCustomersInfo();
+        $customers = getCustomersFromDB();
         return $customers;
     }
 
-    function getCustomer($customer_id)
+    // function getCustomer($customer_id)
+    // {
+    //     // $customer = getCustomerInfo($customer_id);
+    //     $customer = getCustomerFromDB($customer_id);
+    //     return $customer;
+    // }
+
+    function customerName($customer_id)
     {
-        $customer = getCustomerInfo($customer_id);
-        return $customer;
+        $customerName = getCustomerName($customer_id);
+        return $customerName;
     }
+    function customerUsername($customer_id)
+    {
+        $customerUsername = getCustomerUsername($customer_id);
+        return $customerUsername;
+    }
+    function customerAddress($customer_id)
+    {
+        $customerAddress = getCustomerAddress($customer_id);
+        return $customerAddress;
+    }
+    function customerPhone($customer_id)
+    {
+        $customerPhone = getCustomerPhone($customer_id);
+        return $customerPhone;
+    }
+    function customerEmail($customer_id)
+    {
+        $customerEmail = getCustomerEmail($customer_id);
+        return $customerEmail;
+    }
+    function customerPassword($customer_id)
+    {
+        $customerPassword = getCustomerPassword($customer_id);
+        return $customerPassword;
+    }
+    function customerBlockStatus($customer_id)
+    {
+        $customerBlockStatus = getCustomerBlockStatus($customer_id);
+        return $customerBlockStatus;
+    }
+
+
 
     function generatedCustomerId()
     {

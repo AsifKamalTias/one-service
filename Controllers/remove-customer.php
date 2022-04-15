@@ -6,6 +6,7 @@
         {
             $customer_id = $_GET['customer_id'];
             removeCustomer($customer_id);
+            deleteCustomer($customer_id);
             header('Location: ../Views/admin/view-customers.php?remove=true');
         }
         else

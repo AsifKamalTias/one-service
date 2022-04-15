@@ -11,84 +11,58 @@
 <html>
 <head>
     <title>Customers Information - Admin | OneService</title>
-    <style>
-        table {
-            border: 1px solid black;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            text-align: left;
-            padding: 8px;
-            border: 1px solid black;
-        }
-        p.invalid{
-            color: red;
-        }
-        p.valid{
-            color: green;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <a href="./admin-dashboard.php"> Back to Dashboard</a>
-    <h1>Customers Information</h1>
-    <hr>
-    <a href="./add-customer.php">Add Customer</a>
-    <p class="valid">
+    <div class="header">
+            <h1>Customers Information</h1>
+            <div class="header-links">
+                <a id="btn-dashboard" href="./admin-dashboard.php"> < Dashboard</a>
+                <a id="btn-profile" href="../../Views/admin/profile"><i class="fas fa-user"></i> Profile </a>
+                <a id="btn-signout" href="../../Controllers/admin-signout-action.php?signout=true">Sign Out</a>
+            </div>
+    </div>
+    <div class="add-btn-area">
+        <a class="add-btn" href="./add-customer.php"><i class="fa fa-plus"></i> Add Customer</a>
+    </div>
+    <div class="feedback-success">
         <?php
             if(isset($_GET['add']) && $_GET['add'] == 'true') {
-                echo "Customer added successfully!";
+                echo "<p>Customer added successfully!</p>";
             } 
             else if(isset($_GET['edit']) && $_GET['edit'] == 'true') {
-                echo "Customer edited successfully!";
+                echo "<p>Customer edited successfully!</p>";
             }
             else if(isset($_GET['remove']) && $_GET['remove'] == 'true') {
-                echo "Customer removed successfully!";
+                echo "<p>Customer removed successfully!</p>";
             }
             else
             {
                 echo "";
             }
         ?>
-    </p>
-    <p class="invalid">
+    </div>
+    <div class="feedback-fail">
         <?php
             if(isset($_GET['add']) && $_GET['add'] == 'false') {
-                if(isset($_GET['error']) && $_GET['error'] == 'empty') {
-                    echo "Please, fill up all the fields properly. Try again.";
-                }
-                else if(isset($_GET['error']) && $_GET['error'] == 'phone-password')
-                {
-                    echo "Phone Number must be numaric and Password must be at least 8 characters long. Try again.";
-                }
-                else {
-                    echo "Something went wrong. Please, fill up all the fields properly. Try again.";
-                }
+                
+                echo "<p>Something went wrong! Cannot add customer. Try again!</p>";
+    
             }
             else if(isset($_GET['edit']) && $_GET['edit'] == 'false') {
-                if(isset($_GET['error']) && $_GET['error'] == 'empty') {
-                    echo "Please, fill up all the fields properly. Try again.";
-                }
-                else if(isset($_GET['error']) && $_GET['error'] == 'phone-password')
-                {
-                    echo "Phone Number must be numaric and Password must be at least 8 characters long. Try again.";
-                }
-                else {
-                    echo "Something went wrong. Please, fill up all the fields properly. Try again.";
-                }
+                echo "<p>Something went wrong! Cannot edit customer. Try again!</p>";
             }
             else if(isset($_GET['remove']) && $_GET['remove'] == 'false') {
-                echo "Something went wrong. Can not remove. Try again.";
+                echo "Something went wrong! Cannot remove customer. Try again!";
             }
             else
             {
                 echo "";
             }
         ?>
-    </p>
+    </div>
     <br><br>
-    <table border:"1">
+    <table class="info-table">
         <thead>
             <tr>
                 <th>ID</th>
@@ -98,6 +72,7 @@
                 <th>Phone Number</th>
                 <th>Email</th>
                 <th>Block Status</th>
+                <th colspan="2">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -113,8 +88,8 @@
                     echo "<td>" . $customer['customer_blockStatus']."</td>";
                     ?>
                     <?php
-                        echo "<td><a href='./edit-customer.php?customer_id=".$customer['customer_id']."' >Edit</a></td>";
-                        echo "<td><a href='../../Controllers/remove-customer.php?customer_id=".$customer['customer_id']."' >Remove</a></td>";
+                        echo "<td><a href='./edit-customer.php?customer_id=".$customer['customer_id']."' ><i class='fa fa-pen'></i></a></td>";
+                        echo "<td><a href='../../Controllers/remove-customer.php?customer_id=".$customer['customer_id']."' ><i class='fa fa-trash'></i></a></td>";
                     ?>
                     <?php
                     echo "</tr>";
@@ -122,5 +97,6 @@
             ?>
         </tbody>
     </table>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </body>
 </html>

@@ -1,9 +1,5 @@
 body{
-    /* background-color: #080710; */
-    background-image: url("https://images.pexels.com/photos/11470876/pexels-photo-11470876.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #080710;
 }
 
 form{
