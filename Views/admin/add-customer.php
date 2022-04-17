@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div id="add-customer-form" class="form-container">
+    <div class="form-container">
         <div class="form-wrapper add-customer-form-wrapper">
                 <div class="upper">
                     <h1>Add</h1>

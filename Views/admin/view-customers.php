@@ -53,7 +53,7 @@
                 echo "<p>Something went wrong! Cannot edit customer. Try again!</p>";
             }
             else if(isset($_GET['remove']) && $_GET['remove'] == 'false') {
-                echo "Something went wrong! Cannot remove customer. Try again!";
+                echo "<p?>Something went wrong! Cannot remove customer. Try again!</p>";
             }
             else
             {

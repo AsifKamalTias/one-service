@@ -2,7 +2,8 @@
     include '../../Models/moderator.php';
     function getModerators()
     {        
-        $moderators = getModeratorsInfo();
+        // $moderators = getModeratorsInfo();
+        $moderators = getModeratorsFromDB();
         return $moderators;
     }
 
@@ -10,6 +11,18 @@
     {
         $moderator = getModeratorInfo($moderator_id);
         return $moderator;
+    }
+
+    function moderatorUsername($moderator_id)
+    {
+        $moderatorUsername = getModeratorUsername($moderator_id);
+        return $moderatorUsername;
+    }
+
+    function moderatorPassword($moderator_id)
+    {
+        $moderatorPassword = getModeratorPassword($moderator_id);
+        return $moderatorPassword;
     }
 
     function generateModeratorId()

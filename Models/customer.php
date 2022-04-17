@@ -222,16 +222,5 @@
         }
     }
 
-    function deleteCustomer($customer_id)
-    {
-        $sqlConnection = mysqli_connect("localhost", "root", "", "one-service-db") or die("Connection failed: " . mysqli_connect_error());
-        $sql = "DELETE FROM customerinfo WHERE customer_id = '$customer_id'";
-        $result = mysqli_query($sqlConnection, $sql) or die("Query failed: " . mysqli_error($sqlConnection));
-        if($result) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+    
 ?>

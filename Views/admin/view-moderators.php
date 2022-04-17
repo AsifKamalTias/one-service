@@ -11,90 +11,64 @@
 <html>
 <head>
     <title>Moderators Information - Admin | OneService</title>
-    <style>
-        table {
-            border: 1px solid black;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            text-align: left;
-            padding: 8px;
-            border: 1px solid black;
-        }
-        p.invalid{
-            color: red;
-        }
-        p.valid{
-            color: green;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <a href="./admin-dashboard.php"> Back to Dashboard</a>
-    <h1>Moderators Information</h1>
-    <hr>
-    <a href="./add-moderator.php">Add Moderator</a>
-    <p class="valid">
+    <div class="header">
+            <h1>Moderators Information</h1>
+            <div class="header-links">
+                <a id="btn-dashboard" href="./admin-dashboard.php"> < Dashboard</a>
+                <a id="btn-profile" href="../../Views/admin/profile"><i class="fas fa-user"></i> Profile </a>
+                <a id="btn-signout" href="../../Controllers/admin-signout-action.php?signout=true">Sign Out</a>
+            </div>
+    </div>
+    <div class="add-btn-area">
+        <a class="add-btn" href="./add-moderator.php"><i class="fa fa-plus"></i> Add Moderator</a>
+    </div>
+    <div class="feedback-success">
         <?php
             if(isset($_GET['add']) && $_GET['add'] == 'true') {
-                echo "Moderator added successfully!";
+                echo "<p>Moderator added successfully!</p>";
             } 
             else if(isset($_GET['edit']) && $_GET['edit'] == 'true') {
-                echo "Moderator edited successfully!";
+                echo "<p>Moderator edited successfully!</p>";
             }
             else if(isset($_GET['remove']) && $_GET['remove'] == 'true') {
-                echo "Moderator removed successfully!";
+                echo "<p>Moderator removed successfully!</p>";
             }
             else
             {
                 echo "";
             }
         ?>
-    </p>
-    <p class="invalid">
+    </div>
+    <div class="feedback-fail">
         <?php
-            if(isset($_GET['add']) && $_GET['add'] == 'false') {
-                if(isset($_GET['error']) && $_GET['error'] == 'empty') {
-                    echo "Please, fill up all the fields properly. Try again.";
-                }
-                else if(isset($_GET['error']) && $_GET['error'] == 'password')
-                {
-                    echo "Password must be at least 8 characters long.";
-                }
-                else
-                {
-                    echo "Something went wrong. Try Again.";
-                }
+            if(isset($_GET['add']) && $_GET['add'] == 'false') 
+            { 
+                echo "<p>Something went wrong. Cannot add moderator. Try Again!</p>";
             } 
-            else if(isset($_GET['edit']) && $_GET['edit'] == 'false') {
-                if(isset($_GET['error']) && $_GET['error'] == 'empty') {
-                    echo "Please, fill up all the fields properly. Try again.";
-                }
-                else if(isset($_GET['error']) && $_GET['error'] == 'password')
-                {
-                    echo "Password must be at least 8 characters long.";
-                }
-                else
-                {
-                    echo "Something went wrong. Try Again.";
-                }
+            else if(isset($_GET['edit']) && $_GET['edit'] == 'false') 
+            {
+                echo "<p>Something went wrong. Cannot edit moderator. Try Again!</p>";   
             }
-            else if(isset($_GET['remove']) && $_GET['remove'] == 'false') {
-                echo "Something went wrong. Can not remove. Try again.";
+            else if(isset($_GET['remove']) && $_GET['remove'] == 'false') 
+            {
+                echo "<p>Something went wrong. Cannot remove moderator. Try again!</p>";
             }
             else
             {
                 echo "";
             }
         ?>
-    </p>
+    </div>
     <br><br>
-    <table border:"1">
+    <table class="info-table">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Username</th>
+                <th colspan="2">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -105,8 +79,8 @@
                     echo "<td>" . $moderator['moderator_username'] . "</td>";
                     ?>
                     <?php
-                        echo "<td><a href='./edit-moderator.php?moderator_id=".$moderator['moderator_id']."' >Edit</a></td>";
-                        echo "<td><a href='../../Controllers/remove-moderator.php?moderator_id=".$moderator['moderator_id']."' >Remove</a></td>";
+                        echo "<td><a href='./edit-moderator.php?moderator_id=".$moderator['moderator_id']."' ><i class='fa fa-pen'></i></a></td>";
+                        echo "<td><a href='../../Controllers/remove-moderator.php?moderator_id=".$moderator['moderator_id']."' ><i class='fa fa-trash'></i></a></td>";
                     ?>
                     <?php
                     echo "</tr>";
@@ -114,5 +88,6 @@
             ?>
         </tbody>
     </table>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </body>
 </html>
